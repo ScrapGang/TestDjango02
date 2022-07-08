@@ -1,0 +1,63 @@
+**REQUISITO ORACLE 12C O SUPERIOR
+
+**LA ARQUITECTURA DE ORACLE Y VISUAL DEBEN COINCIDIR (x32 O x64)
+
+1 - actualizar visual (menú HELP->CHECK FOR UPDATES)
+
+2 - descargar o abrir proyecto (TestDjango02)
+
+3 - cambiar versión de python por una de 64 bits.
+
+4 - matar la consola (icono tarro de basura) y reiniciar visual.
+
+5 - instalar django, cx_oracle, crispy_forms, pillow y djangorestframework
+
+pip install django
+
+pip install cx_oracle
+
+pip install django-crispy-forms
+
+pip install pillow
+
+pip install djangorestframework
+
+6 - acceder a sqlplus y crear usuario (en duoc user system pass Duoc.2022)
+
+alter session set"_oracle_script" = true;
+
+Drop user prueba; (solo en caso de ya estar creada la base de datos)
+
+create user prueba identified by prueba;
+
+grant connect, resource to prueba;
+
+alter user prueba default tablespace users quota unlimited on users;
+
+7 - Confrimar base de datos
+
+python manage.py makemigrations
+
+python manage.py sqlmigrate core 0001
+
+8 - ejecutar migración.
+
+python manage.py migrate
+
+9 - crear superusuario.
+
+python manage.py createsuperuser
+
+10 - ejecutar proyecto.
+
+python manage.py runserver
+
+11. en caso de presentarse el error "Errno 2"
+Borrar los ducumentes extencion .pyc y volver a ejecutar el paso 7, 8 y 10
+
+rutas en donde borrar los documentos .pyc
+C:\Users\melgu\Desktop\TestDjango02\TestDjango\__pycache__
+C:\Users\melgu\Desktop\TestDjango02\rest_producto\__pycache__
+C:\Users\melgu\Desktop\TestDjango02\rest_producto\migrations\__pycache__
+C:\Users\melgu\Desktop\TestDjango02\core\migrations\__pycache__
+C:\Users\melgu\Desktop\TestDjango02\core\__pycache__
