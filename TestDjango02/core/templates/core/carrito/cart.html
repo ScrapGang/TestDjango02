@@ -1,0 +1,87 @@
+{% extends 'core/plantilla.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+<div class="min-vh-100 d-flex flex-colum py-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-9 col-md-8 col-sm-6 mx-auto ">
+
+                <div class="card">
+                    <div class="card-header text-center">
+                        <strong>CARRITO</strong>
+                    </div>
+                    <div class="card body p-2">
+                        {% load humanize %}
+                        <h6>Total: <strong> 
+                            $ {{ importe_total_carro | intcomma }}
+                        </strong></h6>
+
+                    </div>
+
+                    <div class="card-element table-responsive">
+                        <table class="table table-condensed">
+                            <thead class="text-center">
+                                <tr>
+                                    <th>Item</th>
+                                    <th >Cantidad</th>
+                                    <th>Subtotal</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody class="py-4">
+                                {% if request.session.carro.items %} {% for key, value in request.session.carro.items %}
+                                <tr>
+                                    <td>{{ value.nombre }}</td>
+
+                                    
+                                    <td class="text-center" >
+                                        {{ value.cantidad }}
+                                        <a href="{% url 'addcart' value.producto_id %}" id="botonescantidad" class="btn btn-secondary btn-sm" type="button" ><i class="bi bi-plus"><img src="{% static 'core/img/plus.png' %}" width="20px" alt=""></i></a>
+
+                                        <a id="botonescantidad" class="btn btn-secondary btn-sm" href="{% url 'restarcart' value.producto_id %}" type="button" ><i class="bi bi-dash"><img src="{% static 'core/img/minus.png' %}" width="20px" alt=""></i> </a>
+                                    </td>
+
+                                    <td class="text-center">${{ value.precio }} </td>
+                                    <td class="text-center">
+                                        <a class="btn btn-secondary btn-sm" href="{% url 'delcart' value.producto_id %}" type="button" style="margin: 5% 40% 15% 40%;"><i class="bi bi-trash"><img src="{% static 'core/img/borrar.png' %}" width="20px" alt=""></i></a>
+                                    </td>
+                                </tr>
+                                {% endfor %} {% else %}
+                                <tr>
+                                    <td colspan="5">
+                                        <div class="alert alert-danger text-center ">
+
+                                            No se agregaron productos al carrito
+
+                                        </div>
+                                </tr>
+                                </tr>
+                                {% endif %}
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="card-footer mx-auto ">
+                        {% if request.session.carro.items %}
+                        <a class="btn btn-danger mx-auto mt-0 " href="{% url 'venta' %}">Procesar Compra</a> {% else %}
+                        <a class="btn btn-danger mx-auto mt-0 disabled" href="#">Procesar Compra</a> {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-3 my-4 mx-auto ">
+                <div class="card card-footer align-item-center ">
+                    <a href="/ " class="btn btn-success my-2 mx-auto " >Volver a Tienda</a>
+                    
+                    <a href="{% url 'cleancart' %}" class="btn btn-danger my-2 mx-auto " >Limpiar Carrito</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

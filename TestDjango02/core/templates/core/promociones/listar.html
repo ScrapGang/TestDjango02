@@ -1,0 +1,93 @@
+{% extends 'core/plantilla.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+<div class="min-vh-100 d-flex flex-colum py-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-6 col-sm-4 animate__animated animate__backInRight animate__delay-0.4s">
+                <div class="card">
+                    <div class="card-header text-center font-weight-bold">
+                        {{ title }}
+                    </div>
+                    <div class="card-body table-responsive align-items-center">
+                        <!-- inline-block justify-content-end mb-2 mx-2 -->
+                        <div id="header4">
+
+                            <div id="CRUDPROD">
+                                <button type="submit" class="btn btn-btn-light" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdropv">
+                                {% if user.is_staff %}
+                                <a class="nav-link active" aria-current="page" href="/listarproductos">
+                                  CRUD PRODUCTO
+                              </a>
+                                {% endif %}
+                              </button>
+                            </div>
+                
+                            <div id="Suscripción">
+                                <button type="submit" class="btn btn-btn-light" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdropv">
+                                {% if user.is_staff %}
+                                <a href="{% url 'crudPromociones' %}">CRUD PROMOCIONES</a> 
+                                {% endif %}
+                              </button>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-2">
+                            <a href="/addproducto" class="btn btn-success" type="submit">
+                                Nuevo Producto
+                            </a>
+
+                            <form class="d-flex mx-auto d-sm-inlne-block form-inline" method="POST" action="">
+                                {% csrf_token %}
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-light border-1 small text-center" name="buscador" placeholder="Buscar" value="{{ request.POST.buscador }}">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-danger mx-1" type="submit"> 
+                                                <i class="bi bi-search "><img src="{% static 'core/img/buscar.png' %}" alt="" width="10%" a></i>
+                                            </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <table class="table table-condensed">
+                            <thead class="thead-dark text-center ">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">descripcion</th>
+                                    <th scope="col">precio</th>
+                                    <th scope="col">stock</th>
+                                    
+                                    <th colspan="2">Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 {% if entity %} {% for producto in entity %}
+                                <tr>
+                                    <td>{{ producto.id }}</td>
+                                    <td>{{ producto.nombre }}</td>
+                                    <td>{{ producto.precio }}</td>
+                                    <td>{{ producto.stock }}</td>
+                                    
+                                    <td colspan="2">
+                                        <img src="" alt="">
+                                        <a class="btn btn-secondary"  href="{% url 'editproducto' producto.id %}" type="button" style="margin: -10% 40% 15% 40%;"><i class="bi bi-pencil-square"></i><img src="{% static 'core/img/update.png' %}" width="20px" alt=""></a>
+                                        <a class="btn btn-danger" href="{% url 'deleteProducto' producto.id %}" type="button" style="margin: -10% 40% 15% 40%;"><i class="bi bi-trash-fill"></i><img src="{% static 'core/img/borrar.png' %}" width="20px" alt=""></a>
+                                    </td>
+                                </tr>
+                                {% endfor %} {% else %}
+                                <div class="text-center text-warning">
+                                    <h3> No se encontraron Productos!!</h3>
+                                </div>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,418 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Store</title>
+    <link rel="icon" type="png" href="{% static 'core/img/logo encabezado.png' %}">
+    <link rel="stylesheet" href="{% static 'core/css/estilo.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+    <div id="header1">
+        <div id="logo">
+            <img src="{% static 'core/img//logo pequeño.png' %}" alt="logop" style="margin: 0 0 0 0; width: 35%;">
+           </div> 
+           <!-- <div id="logh" hidden><img src="{% static 'core/img//logo.png' %}" alt=""> </div> -->
+           <div id="logh"><img src="{% static 'core/img//logo.png' %}" alt="logo" style="width: 35%"></div>
+         
+        <div id="menu">
+
+          
+            
+       
+
+            
+          
+
+            <div id="iniciar">
+              <button type="submit" class="btn btn-btn-light" >
+                
+                {% if user.is_authenticated %}
+                <a href="{% url 'home' %}">inicio</a>
+                &nbsp;
+                <a href="{% url 'suscripciones' %}">Suscripción</a>
+                &nbsp;
+                <a href="{% url 'vercompras' %}">Mis Compras</a>
+                {{user.username}}&nbsp;
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+                &nbsp;
+                <div id="carrito">
+                  <!-- Button trigger modal -->
+                  <button type="submit" class="btn btn-btn-light" data-bs-toggle="modal"
+                      data-bs-target="#exampleModal1">
+                      <a href="{% url 'viewcart' %}"><img src="{% static 'core/img/carro.png' %}" width="30px" alt=""></a>
+                  </button>
+                  
+                {% else %}
+                
+                
+                <a href="{% url 'login' %}">Iniciar sesión</a>
+                {% endif %}
+            </button>
+          </div>
+      
+
+            
+            </div>
+    </div>
+
+    <div id="logo2">
+      <img src="Imagenes/logo3.png" alt="">
+    </div>
+  
+    <div id="nuestro">
+      <h1>TERMINOS Y CONDICIONES</h1>
+    </div>
+
+      <div id="CONDI">
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <strong> 1. ANTECEDENTES GENERALES</strong>
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>El acceso y uso de esta plataforma se rige por los Términos y Condiciones</strong> descritos a continuación, así como por la legislación que se aplique en la República de Chile. En consecuencia, todas las visitas y todos los contratos y transacciones que realice un cliente o usuario de Santa Isabel en esta plataforma, como asimismo sus efectos jurídicos, quedarán regidos por estas reglas y sometidas a esa legislación. Estos Términos y Condiciones forman parte de todos los actos y contratos que se ejecuten o celebren mediante los sistemas de oferta y comercialización de esta plataforma entre los clientes o usuarios y Cencosud Retail S.A. Rut 81.201.000 -K, con dirección en Kennedy 9001, 4° piso, comuna de Las Condes, a la cual se les denominará en adelante “la plataforma”. 
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <strong> 2. Servicios de la plataforma</strong>
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>Registro del usuario o cliente en PET STORE </strong>
+              <p> </p>
+                <p>Será requisito necesario para la compra de productos y servicios en esta plataforma, el registro por parte del usuario, y su aceptación inequívoca a estos Términos y Condiciones y Política de Privacidad.
+                Cada vez que se realice una actualización del presente documento, el usuario o cliente deberá expresar nuevamente su aceptación.</p>
+                
+                <p>registro es gratuito.</p>
+                
+                <p><strong>Adaptaciones para Garantizar la Comprensión de Nuestros Términos y Condiciones a Personas con Discapacidad Visual o Auditiva en SANTA ISABEL.cl y SANTA ISABEL App</strong>
+                Nuestra plataforma contiene funcionalidades especiales para facilitar la comprensión a todos nuestros clientes y estas consisten en:</p>
+                
+                <p>Textos en formato de audio: todo el documento escrito esta desarrollado de manera tal que un lector de pantalla (screen reader), que son sistemas o software incorporados en los computadores y dispositivos móviles, puedan realizar fácilmente la lectura en voz alta de nuestros Términos y Condiciones.
+                Para acceder a esta funcionalidad debes ir a la configuración de tu dispositivo móvil y dentro de la sección de Accesibilidad configurar el lector de audio. No se incluyen tablas gráficas en este texto, con el objeto de facilitar la lectura por parte de los Screen Reader.
+                Contraste: con el objetivo de poder invertir los colores y facilitar la lectura, disponemos de la funcionalidad denominada DarkMode, que se puede activar fácilmente mientras se visualiza la pantalla del dispositivo.
+                Tamaño de la tipografía: para simplificar la lectura se puede ajustar el tamaño de la letra de nuestro texto.</p>
+                <p><strong>Clave secreta </strong></p>
+                <p>Una vez registrado, el usuario tendrá un RUT o correo y clave definitiva para acceder a la plataforma de manera personalizada, confidencial y segura. El usuario podrá cambiar la clave de acceso mediante el procedimiento establecido en la plataforma. Además, asumirá totalmente la responsabilidad de mantener la confidencialidad de su clave secreta, la cual le permite efectuar compras, solicitar servicios y obtener información. Dicha clave es de uso personal y su entrega a terceros no involucra la responsabilidad de Cencosud Retail S.A. o sus empresas relacionadas, en caso de mala utilización.</p>
+                
+                <p><strong>Capacidad legal del comprador o contratante de los servicios: Solo mayores de 18 años.</strong></p>
+                Los servicios de esta plataforma sólo están disponibles para aquellos individuos que tengan capacidad legal para contratar, según lo dispuesto por la legislación vigente. Si una persona no tiene capacidad legal para contratar, debe abstenerse de utilizar los servicios y el oferente podrá, en cualquier momento, en forma temporal o definitiva, suspender la participación de usuarios que se compruebe carecen de capacidad legal para usar de los servicios ofrecidos en la plataforma o cuando al registrarse proporcionen información que sea falsa, inexacta o fraudulenta.
+                
+                <p><strong>Advertencia del efecto vinculante de los Términos y Condiciones</strong></p>
+                <p>Una vez aceptados los Términos y Condiciones, estos serán obligatorios y vinculantes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <strong>3. Almacenamiento, Finalidad, Custodia Y Tratamiento De Los Datos</strong>
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>El Usuario gozará de todos los derechos que le reconoce la legislación vigente en el territorio de Chile, además de los que se le otorgan en estos Términos y Condiciones. La sola visita a esta plataforma, no le impone al Usuario obligación alguna, a menos que haya aceptado en forma inequívoca las condiciones ofrecidas por la empresa, en la forma indicada en estos Términos y Condiciones.
+              Esta plataforma permite otorgar a los Usuarios diversos beneficios, sobre la base de la información que estos proporcionan al momento de registrarse.</p>
+              
+              <p>Esta plataforma en base al conocimiento de la información personal de los Usuarios puede, entre otros beneficios, enviar detalles de ofertas, promociones y actualizaciones y/o novedades de productos y/o servicios, a los mismos, permitiendo que esta plataforma pueda ofrecer mejoras a la experiencia de los Usuarios, procurando responder a las necesidades de éstos.
+              Por ello es importante que el Usuario tenga presente que cuando acepta su incorporación a la plataforma, declara que los antecedentes o datos de carácter personal que proporciona, en adelante la “Información”, son sustancialmente correctos y corresponden a la realidad, debiendo comunicar cualquier modificación o cambio en estos, tan pronto como se produjeren. Para esta plataforma, la anterior declaración es un elemento determinante para permitir la incorporación del Usuario, siendo el Usuario personalmente responsable de las consecuencias que pudiere ocasionar su incumplimiento.</p>
+              
+              <p>En consideración a lo anterior, el Usuario consiente expresamente que, como efecto de su incorporación a esta plataforma, la Información que se acumule, recolecte, reciba o recoja de los Usuarios, podrá ser objeto de:</p>
+              almacenamiento, entendiendo por tal el archivo de la información en lugares especialmente destinados al efecto;<br>
+              procesamiento, entendiendo por tal los mecanismos y procesos que permitan brindar al Usuario los servicios ofrecidos;<br>
+              tratamiento, entendiendo por tal cualquier operación o complejo de operaciones o procedimientos técnicos, de carácter automatizado o no, que permitan recolectar, almacenar, grabar, organizar, elaborar, agrupar, seleccionar, extraer, confrontar, interconectar, disociar o cancelar la información; y/o <br>
+              disposición, entendiendo por tal comunicar, ceder, transferir, transmitir o cancelar datos de carácter personal o utilizarlos en cualquier forma autorizada. Lo anterior salvo que el Usuario, respecto del tratamiento y disposición, expresamente instruya lo contrario mediante comunicación escrita enviada al correo centrodeayuda <br>
+              La Información almacenada podrá ser usada para los fines que, a continuación, se expresan: <br>
+              la confección y/o mejora de los productos y/o servicios que el plataforma, le prestan a los Usuarios, así como el diseño de nuevos productos y/o servicios para éstos; <br>
+              el envío por cualquier vía de todo tipo de información, incluyendo, pero no limitada a, antecedentes técnicos, publicidad, ofertas y promoción de productos y/o servicios, ya sean de este plataforma, o de cualquier otra empresa que forme parte, o llegaran a formar parte del Grupo Cencosud; y
+              la realización de estudios individuales y/o colectivos de cualquier tipo como, por ejemplo, estudios en materia demográfica, histórica, comportamiento de los Usuarios e investigaciones de mercado; cuidando siempre de la reserva y confidencialidad de los datos personales de la manera exigida por la ley. <br>
+              La plataforma podrá disponer y comunicar al resto de las empresas que forman parte, o llegaran a formar parte del Grupo Cencosud; todo o parte de la Información proporcionada por el Usuario, caso en el cual su destinatario deberá cumplir con alguno de los siguientes requisitos: <br>
+              ser una persona relacionada a la propiedad o gestión de empresas que forman parte, o llegaran a formar parte del Grupo Cencosud; y/o <br>
+              ser una filial o controladora de la misma, o una persona jurídica que esté bajo el control común de empresas que forman parte, o llegaran a formar parte, del Grupo Cencosud; y/o de las sociedades con que estas establezcan acuerdos comerciales para el desarrollo de estrategias vinculadas con su giro. <br>
+              La plataforma procurará que el destinatario de la referida información garantice que ésta será tratada bajo adecuados parámetros de reserva y que, en el evento que el Usuario se oponga al uso de esta, será eliminada de los registros respectivos. Por último, esta plataforma como los citados destinatarios sólo podrán usar la Información con los propósitos informados precedentemente, caso este último en que las condiciones de esta política aplicables a la Plataforma deberán ser cumplidas por dichos destinatarios. <br>
+              
+              <p>El Usuario puede revocar la autorización que entrega para tratar sus datos personales en cualquier momento, en cuyo caso es posible que no pueda utilizar alguno o todos los servicios que ofrece la plataforma. Es su derecho pedirnos información sobre los datos personales suyos que hayamos recolectado y ejercer sus derechos de rectificación, cancelación, oposición. y todos los demás derechos que confiere la Ley N° 19.628 sobre Protección de la Vida Privada. Para ejercer estos derechos sólo tendrás que contactarnos a través del correo electrónico dirigido a centrodeayuda@sisa.cl
+              Del mismo modo, siempre puedes solicitar la suspensión de comunicaciones promocionales o publicitarias, de conformidad a lo dispuesto en el artículo 28 B de la Ley N°19.496 sobre Protección de los Derechos de los Consumidores.</p>            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingcuatro">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsecuatro" aria-expanded="false" aria-controls="collapsecuatro">
+              <strong>4. Proceso de compra y contratación</strong>
+            </button>
+          </h2>
+          <div id="collapsecuatro" class="accordion-collapse collapse" aria-labelledby="headingcuatro" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>A través de esta plataforma, las empresas realizarán ofertas de bienes y servicios, las que podrán ser aceptadas por vía electrónica o telefónica, y utilizando los mecanismos que la misma plataforma ofrece para ello. Toda aceptación de oferta quedará sujeta a la condición suspensiva de que la empresa oferente valide la transacción. En consecuencia, para toda operación que se efectúe en esta plataforma, la confirmación y/o validación o verificación por parte de la empresa oferente será requisito para la formación del consentimiento. Para validar la transacción, la empresa oferente verificará:</p>
+
+            <p>Que dispone, en el momento de la aceptación de oferta, de las especies en stock o de sustitutos.
+              Que valida y acepta el medio de pago ofrecido por el usuario.
+              Que los datos registrados por el cliente en la plataforma coinciden con los proporcionados al efectuar su aceptación de oferta. Será de exclusiva responsabilidad del cliente que los datos proporcionados al solicitar su pedido, como nombre, dirección, comuna, ciudad, teléfonos de contacto y mail, estén correctos. En caso contrario, de no ser posible la autentificación de todos los datos indicados, a través de los medios que el proveedor considere pertinentes y siempre antes de que se inicie la jornada de despacho del pedido requerida por el cliente, la solicitud de pedido se dejará nula.</p>
+            <p>En el caso de venta de bebidas alcohólicas, esta sólo se realizará a usuarios mayores de 18 años, en cumplimiento de la ley vigente, y por tanto, todo comprador de bebidas alcohólicas, sin excepción, deberá mostrar o exhibir la cédula de identidad u otro documento de identificación expedido por la autoridad pública que acredite su edad, esto al momento de la recepción de la compra. En caso de no cumplir con este requisito, el producto no será entregado y el monto será devuelto en un plazo máximo de 5 días hábiles.</p>
+          <p>Para informar al usuario acerca de esta validación, una vez generada la boleta respectiva, la empresa oferente enviará una confirmación escrita al mail que haya registrado el usuario aceptante de la oferta, o por cualquier medio de comunicación que garantice el debido y oportuno conocimiento del consumidor, el que se le indicará previamente en la misma plataforma. El consentimiento se entenderá firmado desde el momento en que se envía esta confirmación escrita al usuario y en el lugar en que fue expedida.</p>
+              
+        <p>La entrega de la compra sólo se realizará a mayores de 18 años.</p>
+          </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingcinco">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsecinco" aria-expanded="false" aria-controls="collapsecinco">
+              <strong>5. Precios, promociones y ofertas</strong>
+            </button>
+          </h2>
+          <div id="collapsecinco" class="accordion-collapse collapse" aria-labelledby="headingcinco" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>Los precios de los productos y servicios disponibles en esta plataforma, mientras aparezcan en él, sólo tendrán vigencia y aplicación en ésta y no serán aplicables a otros canales de venta utilizados por SANTA ISABEL, tales como tiendas físicas, catálogos u otras plataformas web habilitadas por SANTAISABEL.cl, para venta online, en localidades específicas.</p>
+
+              <p>La empresa podrá modificar cualquier información contenida en esta plataforma, incluyendo las relacionadas con mercaderías, servicios, precios, existencias y condiciones, en cualquier momento y sin previo aviso, respetando las compras que han sido aceptadas hasta dicho momento, siempre sujeto a las condiciones de validación que se indican en el punto 6 de estos Términos y Condiciones.</p>
+              
+            <p>Las ofertas y promociones no son acumulables con otras ofertas vigentes. Sólo se aplicará la mejor oferta vigente.</p>
+          </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingseis">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseseis" aria-expanded="false" aria-controls="collapseseis">
+              <strong>6. Medios de pago aceptados</strong>
+            </button>
+          </h2>
+          <div id="collapseseis" class="accordion-collapse collapse" aria-labelledby="headingseis" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>Los productos y servicios ofrecidos en esta plataforma y en SANTA ISABEL App, salvo que se señale una forma diferente para casos particulares u ofertas de determinados bienes o servicios, pueden ser pagados con: Tarjetas de débito, o Tarjetas de crédito bancarias y no bancarias habilitadas, emitidas en Chile, con la sola exclusión de las tarjetas de crédito de prepago.</p>
+              <p>El uso de las tarjetas singularizadas precedentemente se sujetará a lo establecido en estos Términos y Condiciones y en relación con su emisor y a lo pactado en los respectivos Contratos de Apertura y Reglamento de Uso. En caso de contradicción, predominará lo expresado en ese último instrumento.</p>
+              
+              <p>Otros medios de pago que eventualmente puedan ser aceptados en el futuro, de lo cual se informará oportunamente en esta plataforma.</p>
+              
+              <p><strong>Registro De Medio De Pago </strong></p>
+              <p>Para registrar la tarjeta de débito o crédito en SANTA ISABEL.cl o en SANTA ISABEL App, se deriva al cliente al sistema Webpay donde se efectúa un cobro de $50 (cincuenta pesos) para autenticar al usuario y validar su tarjeta contra el banco emisor del mismo. Este monto  es devuelto en 24 horas y sirve solo a modo de validación. A su vez los datos de las tarjetas son almacenados por Transbank en un ambiente seguro, por lo que la plataforma no tiene acceso a ellas.</p>
+              
+              <P>Asimismo, aquellos clientes que deseen utilizar su tarjeta de débito, se les solicitará completar sus datos bancarios para devolver futuras diferencias o saldos a favor del cliente, las que serán realizadas a través de transferencias bancarias o algún otro método similar. Estos datos bancarios solo pueden ser modificados por el mismo cliente en su cuenta SANTA ISABEL, sección ‘Mi cuenta bancaria’, y es responsabilidad del cliente mantenerla actualizada, pues a modo de resguardo y protección, ningún colaborador de SANTA ISABEL puede crear, editar o borrar dichos datos.</p>
+              
+              <P><strong>Registro De Cuenta Bancaria para Pago con Tarjeta de Débito</strong></P>
+              <p>En el caso de pago con tarjeta de débito, puedes registrar una cuenta bancaria del titular de la sesión de SANTA ISABEL, o de un tercero. Para este último caso el cliente deberá ingresar el número de cédula de identidad del titular de dicha cuenta, además, deberá ingresar los datos de la cuenta corriente y seleccionar el banco al que pertenece, de la lista que ofrecen nuestros sistemas.</p>
+              
+              <p><strong> Cobro</strong></p>
+              <p>Cuando el cliente ingresa un pedido en la plataforma, en su tarjeta verá una primera transacción, correspondiente al cobro del 90% del monto del pedido ingresado. Al finalizar la preparación del pedido, el cliente será contactado por la persona encargada de prepararlo, para revisar la sustitución de los productos que no estuvieran disponibles y le consultará si requiere agregar productos a su orden de compra.</p>
+              
+              <p>Luego se comunicarán los precios asociados a los reemplazos y los productos adicionados, ya que los valores a cobrar corresponderán al precio exhibido en la sala de ventas, los cuales podrían tener una diferencia con el valor publicado en la plataforma.</p>
+              
+              <p>Una vez aceptados los cambios y valores por parte del cliente, se procederá a su incorporación de los productos al pedido y se generará un nuevo cargo en su tarjeta, correspondiente esta vez al cobro de las diferencias si procediere. En caso de falla de este segundo cobro, el cliente será notificado vía correo electrónico, informándole que se reintentará el cobro a su tarjeta ingresada. Si el error persiste, el cliente será comunicado de las acciones a realizar para regularizar situación.</p>
+              
+              <P>De existir una diferencia a favor del cliente, entre el monto del pedido preparado y el cobro realizado del 90% del pedido ingresado, se procederá a realizar una devolución de dinero al medio de pago del cliente en un máximo de 5 días hábiles.</P>
+              
+              <p>Para los productos a granel, se cobrará la cantidad real correspondiente al peso del producto entregado.</p>
+              
+              <p>Ahora bien, en el caso de que la persona encargada de preparar el pedido no logre contacto telefónico para ofrecer sustitutos, estos productos quedaran faltantes en la compra por no contar con el consentimiento del cliente para efectos de la sustitución.</p>
+              
+              <p><strong>Devoluciones</strong></p>
+              <p>Si existiera diferencia entre lo cobrado y lo facturado a favor del cliente, si pagó con tarjeta de crédito, ésta se verá reflejada en los movimientos por facturar en un plazo máximo de 5 días hábiles contados desde el día de entrega del pedido.</p>
+              
+              <p>Si el pago fue realizado con tarjeta de débito, la devolución será realizada en un plazo máximo de 5 días hábiles contados desde el día de entrega del pedido, en la cuenta bancaria registrada por el cliente. Este plazo rige en aquellos casos en los que se hayan ingresado correctamente todos los datos de la cuenta.</p>
+              
+              <p>Cuando se trate de reembolso de dinero, solicitado por el cliente con motivo de un problema asociado a algún producto, ésta se realizará en un plazo de hasta 5 días hábiles a contar de la fecha de su solicitud, tanto como para tarjeta de crédito como débito.</p>
+              
+              <p>En el caso que existan errores en los datos de cuenta informados (tarjeta de débito) o problemas como el bloqueo de la tarjeta u otro motivo, se efectuará la devolución en un máximo de 14 días corridos.</p>            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingsiete">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesiete" aria-expanded="false" aria-controls="collapsesiete">
+              <strong>7. El Stock y limite de compra</strong>
+            </button>
+          </h2>
+          <div id="collapsesiete" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>Todos los productos están sujetos a disponibilidad de stock al momento de hacer la recolección del pedido.</p>
+
+              <p>La venta de los productos en la plataforma es exclusivamente para consumo familiar. Por RUT asociado a la compra, este límite corresponde a un máximo de 8 unidades de cada producto para todas las categorías mencionadas en la página principal (home) de nuestra plataforma, excepto:</p>
+              
+              Vinos, Cervezas y Licores, cuyo límite de compra es 12 Unidades, o 2 Cajas de 6 Unidades o 1 Caja de 12 Unidades.<br>
+              Lácteos, cuyo límite de compra es 12 Unidades, o 2 Cajas de 6 Unidades o 1 Caja de 12 Unidades.<br>
+              Chocolates y Mazapán, cuyo límite de compra es 6 Unidades<br>
+              Electro Hogar, cuyo límite de compra es de 2 Unidades<br>
+              Tecnología, cuyo límite de compra es de 2 Unidades<br>
+              Juguetería y Deportes, cuyo límite de compra es de 3 Unidades<br>
+              Hogar, cuyo límite de compra es de 6 Unidades.<br>   
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingocho">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseocho" aria-expanded="false" aria-controls="collapseocho">
+              <strong>8. Retiro y despacho de los productos</strong>   
+              </button>
+          </h2>
+          <div id="collapseocho" class="accordion-collapse collapse" aria-labelledby="headingocho" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>Los productos adquiridos a través de esta plataforma se sujetan a las condiciones de despacho y entrega elegidas por el usuario y disponibles en la plataforma. La información del lugar de envío, el registro de la misma y la corroboración en el proceso de validación de la compra son de exclusiva responsabilidad del usuario.</p>
+
+              <p>Los servicios de despacho y entrega disponibles son los siguientes:</p>
+              
+              <p><strong> Compra online y retira en tu auto</strong></p>
+              <p>Plazo y modalidad para recoger el pedido en auto</p>
+              Debes ir a buscar tu pedido dentro del mismo día que seleccionaste y recibiste la notificación por mail avisando que está listo para retiro. De no hacerlo dentro del mismo día, el cliente a través de la aceptación de estos términos y condiciones faculta a la plataforma a anular la compra y cobrar los gastos operacionales en que incurre para preparar el pedido, tales como el cobro de los productos frescos y/o perecibles que pueda contener, por lo que el monto a devolver al cliente excluirá estos valores.
+              
+              <p>El cliente debe seguir la señalética para llegar a la zona de “Retiro en tu auto” y avisar su llegada.</p>
+              
+              <p><strong>Autorizar a otra persona a retirar el pedido</strong></p>
+              <p>El usuario debe dejarlo estipulado en la opción que aparece antes de realizar el pago del pedido en nuestra plataforma. No se entregará el pedido a otra persona si no fue señalado en esa instancia. La entrega de la compra sólo se realizará a mayores de 18 años, previa validación de la identidad de quien retira con su respectivo documento de identidad, el que debe estar vigente o mediante algún medio electrónico dispuesto para tal fin.</p>
+              
+              <p><strong>Cambio horario y/o persona autorizada para retiro de la compra</strong></p>
+              <p>Si el usuario tiene problemas para retirar su pedido en el horario definido o necesita cambiar los datos de la persona que retira, debe comunicarse 24 horas antes con nuestros canales digitales o a través de Jumbito: Asistente Virtual disponible en nuestra página web, solicitando hablar con un ejecutivo.</p>
+              
+              <P><strong>Monto Mínimo de compra.</strong></P>
+              <p>Para el Servicio retiro en Auto el monto mínimo de compra es de $10.000 (diez mil pesos moneda nacional de Chile).</p>
+              
+              <p><strong>Este servicio </strong> de retiro en Auto, <strong>no tiene costo</strong> para el cliente.</p>
+              
+              <p><strong> Compra online y retira en local/tienda</strong></p>
+              
+              <p><strong>Plazo y modalidad para retirar el pedido en Tienda</strong></p>
+              <p>El plazo máximo para retirar un pedido será de 1 día, incluyendo el día elegido para hacerlo. De no realizar el retiro en este plazo, el cliente a través de la aceptación de éstos términos y condiciones faculta a SANTA ISABEL a anular la compra y cobrar los gastos operacionales en que incurre para preparar el pedido, tales como el cobro de los productos frescos y/o perecibles que pueda contener, por lo que el monto a devolver al cliente excluirá estos valores.</p>
+              
+              <p><strong>Autorizar a otra persona a retirar el pedido</strong><p>
+              <p>El usuario debe dejarlo estipulado en la opción que aparece antes de realizar el pago del pedido en nuestra plataforma. No se entregará el pedido a otra persona si no fue señalado en esa instancia. La entrega de la compra sólo se realizará a mayores de 18 años.</p>
+              
+              <p><strong>Cambio horario de retiro</strong></p>
+              <p>Si el usuario tiene problemas para retirar su pedido en el horario definido o necesita cambiar los datos de la persona que retira, debe ingresar con 24 horas antes con nuestros canales digitales o a través de Jumbito: Asistente Virtual disponible en nuestra página web, solicitando hablar con un ejecutivo.</p>
+              
+              <strong>Monto Mínimo de compra.</strong>  Para el Servicio retiro en Local/Tienda el monto mínimo de compra es de $10.000 (diez mil pesos moneda nacional de Chile). <br>
+              <strong> El costo del servicio es gratuito.</strong>
+              <p> <strong>Despacho a domicilio</strong></p>
+              <p>Este servicio considera la entrega del pedido en el domicilio ingresado por el cliente al momento de hacer el pedido, y aceptado de acuerdo a nuestras zonas de despacho disponibles.</p>
+              
+              <p>Si el cliente no se encuentra en su domicilio al momento de la llegada del pedido, trataremos de contactarle para avisar y esperar un máximo de 10 minutos. En caso que quede menos de 10 minutos para completar la entrega en el plazo de compromiso, esperaremos el tiempo restante hasta cumplir el límite.</p>
+              
+              <p>No se realizarán devoluciones de productos perecibles si la causa de la no entrega es que el cliente no se encontraba en su domicilio durante el tiempo de compromiso de envío. En consecuencia, el pedido será anulado, total o parcialmente, según corresponda.</p>
+              
+              <p><strong>Cambio horario de Despacho a domicilio</strong>></p>
+              <p>Si el usuario tiene problemas para recibir su pedido en el horario definido o necesita cambiar los datos de la persona que recibe, debe ingresar con 24 horas antes al centro de ayuda https://ayuda.santaisabel.cl/ayuda/necesita-ayuda, con nuestros canales digitales o a través de Jumbito: Asistente Virtual disponible en nuestra página web, solicitando hablar con un ejecutivo.</p>
+              
+              <p><strong>Monto Mínimo de compra.</strong></p>
+              <p>Para el Servicio de Despacho a domicilio el monto mínimo de compra es de $10.000 (diez mil pesos moneda nacional de Chile).</p>
+              
+              <p><strong>El costo del servicio</strong><p>
+              El costo de servicio es variable de acuerdo a la localidad, y será informado al cliente antes de que realice el pago en la plataforma. <br>
+              Región de Valparaíso: <br>
+              Viña del Mar, Valparaíso, Reñaca, Concón, Quilpué y Villa Alemana: de lunes a domingo de 09:00 a 12:00, de 12:00 a 16:00, de 16:00 a 19:00 y de 18:00 a 20:30. El costo de envío es de $3.990. <br>
+              Casa Blanca, Laguna Verde y Curauma (urbano): los días miércoles y sábados de 09:00 a 17:00. El costo de envío es de $5.990. <br>
+              Maitencillo, Zapallar, Cachagua, Papudo, Quintero, Marbella, Mantagua y Puchuncaví: los días jueves de 09:00 a 17:00 y 16:00 a 20:00. El costo de envío es de $6.990. <br>
+              Santo Domingo, Quintay, Tunquen, El Quisco, Algarrobo, Santa María del Mar y Las Brisas:  los días miércoles y sábados de 09:00 a 17:00. El costo de envío es de $6.990. <br>
+              Limache y Olmué: los días lunes de 12:00 a 17:00 y martes de 09:00 a 17:00. El costo de envío es de $5.990. <br>
+              Los Andes y San Felipe: de martes a viernes de 09:00 a 15:00 y de 12:00-17:00, sábados y domingos de 09:00 a 15:00 <br>
+              <p>Región Metropolitana: </p>
+              Alto Jahuel, Buin, Calera de Tango, Cerrillos,  Cerro Navia, Chicureo, Colina, Conchalí, El Bosque, El Monte, Estación Central, Huechuraba, Independencia, Isla de Maipo, La Cisterna, La Florida, La granja, La Pintana, La Reina, Lampa, Las Condes, Linderos, Lo Barnechea, Lo Espejo, Lo Prado, Los Cerrillos, Macul, Maipú, Ñuñoa, Padre Hurtado, Paine, Pedro Aguirre Cerda, Peñaflor, Peñalolén, Pirque, Providencia, Pudahuel, Puente Alto, Quilicura, Quinta Normal, Recoleta, Renca, San Bernardo, San Joaquín, San Miguel, San Ramón, Santiago, Talagante, Vitacura; de lunes a domingo de 09:00 a 12:00, de 11:00 a 13:00, de 12:00 a 15:00, de 13:00 a 15:00, de 14:00 a 17:00, de 15:00 a 17:00, de 16:00 a 19:00, de 17:00 a 19:00. El costo de envío es de $3.990. <br>
+              <p>Región del Libertador Bernardo O’Higgins: </p>
+              Rancagua y Machalí: los días lunes de 14:30 a 19:30, martes a viernes de 09:30 a 14:30 y de 14:30 a 19:30, sábados y domingos de 09:30 a 14:30. El costo de envío es de $3.990. <br>
+                     </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingnueve">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsenueve" aria-expanded="false" aria-controls="collapsenueve">
+              <strong>9. Despacho de retracto</strong>
+              </button>
+          </h2>
+          <div id="collapsenueve" class="accordion-collapse collapse" aria-labelledby="headingnueve" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>El usuario podrá retractarse de la compra de productos efectuada en la plataforma, dentro del plazo de 10 días contados desde la recepción del producto. De acuerdo con el artículo 3 bis letra b) de la Ley 9.496 Sobre Protección de los Derechos de los Consumidores, este derecho no procede respecto de:</p>
+
+              Bienes que, por su naturaleza, no puedan ser devueltos o puedan deteriorarse o caducar con rapidez; o <br>
+              Bienes que hubieran sido confeccionados conforme a las especificaciones del consumidor; o <br>
+              Cuando se trate de bienes de uso personal. <br>
+               
+              
+              <p>Para poner término unilateralmente al contrato de conformidad a este artículo, el usuario podrá utilizar los mismos medios que empleó para celebrar el contrato. </p>
+              
+              <p>Si el usuario ejerciera este derecho, se le devolverán las sumas abonadas, sin retención de gastos, a la mayor brevedad posible y, en cualquier caso, antes de cuarenta y cinco días siguientes a la comunicación del retracto. Tratándose de servicios, la devolución sólo comprenderá aquellas sumas abonadas que no correspondan a servicios ya prestados al consumidor a la fecha del retracto. </p>
+              
+              <p>Los productos deberán restituirse en buen estado los elementos originales del embalaje, como las etiquetas, certificados de garantía, manuales de uso, cajas, elementos de protección o su valor respectivo, previamente informado. </p>
+              
+              <p>El cliente deberá concurrir directamente al local SANTA ISABEL más cercano, con su boleta, voucher de compra o cualquier otro documento fehaciente que acredite la compra del producto, a realizar la devolución del producto.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingdiez">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsediez" aria-expanded="false" aria-controls="collapsediez">
+            <strong>10. Procedimiento de cambios y Devoluciones</strong>            </button>
+          </h2>
+          <div id="collapsediez" class="accordion-collapse collapse" aria-labelledby="headingdiez" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>Los usuarios o clientes podrán solicitar devoluciones o cambios, dentro del territorio de Chile continental, conforme a lo establecido en la Ley 19.496 sobre Protección de Derechos de los Consumidores. En caso de que la causa que motiva la petición de cambio o devolución no esté contemplada en dicha normativa, SANTA ISABEL se compromete a revisar cada caso y evaluar una solución para el cliente, siempre que la solicitud se realice dentro de las 24 horas siguientes a la recepción del producto.</p>
+
+              <p>Si el cliente lo desea, puede solicitar la devolución o el cambio de un producto a través de nuestro Centro de Ayuda  Jumbito: Asistente Virtual, donde un ejecutivo de servicio al cliente tomará el requerimiento y presentará opciones de solución. Si eventualmente se requiere evaluación, lo derivará al área especializada y el cliente será contactado para confirmar la solicitud.</p>
+              
+              <p>El cliente deberá restituir el o los productos reclamados en las condiciones en que le fueron entregados, en el momento en que se acuerde el cambio del producto, o devolución del dinero o pago, solicitados. Si el cliente requiere devolver un producto, solicitando la restitución del monto pagado, en el caso que la devolución sea procedente, ésta siempre se realizará al medio de pago utilizado por el cliente en un plazo de 5 días hábiles.</p>
+              
+              <p>Siempre que el cliente lo desee, puede también concurrir directamente al local SANTA ISABEL más cercano, con su boleta, voucher de compra o cualquier otro documento fehaciente que acredite la compra del producto, a realizar el cambio o devolución, siempre que la gestión solicitada cumpla con lo establecido en la Ley 19.496 sobre Protección de Derechos de los Consumidores.</p>
+                        </div>
+          </div>
+        </div>
+        </div>
+       
+        
+      </div>
+    </div>
+    <footer>
+      <div id="piepag">
+        <div id="centro">
+          <div class="container">
+            <h5> Centro de Ayuda</h5>
+            <a href="{% url 'problemasPedido' %}"><span class="otherPage">Problemas con tu pedido</span></a>
+            <a href="mailto:pet.store@gmail.com"><span class="otherPage">pet.store@gmail.com</span></a>
+        </div>
+        </div>
+        <div id="Pet">
+          <div class="container">
+            <h5> Quienes Somos</h5>
+            <a href="{% url 'nosotros' %}"><span class="otherPage">Acerca de nosotros</span></a>
+        </div>
+        </div>
+        <div id="redess">
+          
+            <h5> Redes sociales</h5>
+            <a href="https://www.facebook.com/Pet-Store-111594554881435"><img src="{% static 'core/img/facebook.png' %}" alt="" a>
+            <a href="https://www.instagram.com/petstore640/"><img src="{% static 'core/img/Instagram.png' %}" alt="" a>
+            <a href="https://twitter.com/PETSTORE_1"><img src="{% static 'core/img/twitter.png' %}" alt="" a>
+        
+        </div>
+        
+
+        
+
+      </div>
+
+      <div id="copyr">
+       
+        <div id="cop"> 
+          <div class="container1">
+            <a>Copyright © 2022 Pet Storeㅤ|ㅤ</a> 
+            <a href="{% url 'terminosycondiciones' %}">Términos y Condicionesㅤ|ㅤ</a>
+            <a href="{% url 'terminosycondiciones' %}">Seguridad y Privacidad</a>
+        </div>
+        </div>
+        </div>
+        
+      
+    </footer>
+  </body>
+  
+  </html>

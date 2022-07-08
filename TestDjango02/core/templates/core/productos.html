@@ -1,0 +1,43 @@
+{% extends 'core/plantilla.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block contenido %}
+<div id="CRUD" style="display: flex; justify-content: space-between; height: 30vh; ">
+  <button type="submit" class="btn btn-btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdropv">
+    {% if user.is_staff %}
+    <a class="nav-link active" aria-current="page" href="/listarproductos">
+      CRUD PRODUCTO
+    </a>
+    {% endif %}
+  </button>
+
+
+
+  <button type="submit" class="btn btn-btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdropv">
+    {% if user.is_staff %}
+    <a href="{% url 'crudPromociones' %}">CRUD PROMOCIONES</a>
+    {% endif %}
+  </button>
+
+
+
+  <button type="submit" class="btn btn-btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdropv">
+    {% if user.is_staff %}
+    <a class="nav-link active" aria-current="page" href="/listarpedidos">
+      CRUD PEDIDO
+    </a>
+    {% endif %}
+  </button>
+
+  <button type="submit" class="btn btn-btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdropv">
+    {% if user.is_staff %}
+    <a class="nav-link active" aria-current="page" href="/categorias">
+      CRUD CATEGORIA
+    </a>
+    {% endif %}
+  </button>
+
+</div>
+
+{{mensaje}}
+{% endblock %}
